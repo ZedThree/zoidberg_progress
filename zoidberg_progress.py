@@ -1,9 +1,10 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from sys import stdout
 from time import sleep
 
-def zoid_progress(progress, barLength=40, ascii=False, pad=False):
+def zoidberg_progress(progress, barLength=40, ascii=False, pad=False):
     """Displays or updates a console progress bar
 
     Accepts a float between 0 and 1. Any int will be converted to a float.
@@ -65,6 +66,6 @@ def zoid_progress(progress, barLength=40, ascii=False, pad=False):
     
 if __name__ == "__main__":
     for ii in range(100):
-        zoid_progress(ii/99.0)
+        zoidberg_progress(ii/99.0)
         sleep(0.1)
     print('')
