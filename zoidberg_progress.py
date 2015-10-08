@@ -4,7 +4,7 @@
 from sys import stdout
 from time import sleep
 
-def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-'):
+def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-', woop=False):
     """Displays or updates a console progress bar
 
     Accepts a float between 0 and 1. Any int will be converted to a float.
@@ -19,6 +19,7 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-'):
                 character [False]
     pad       - Pad Zoidberg's claws to stop his head bobbing [False]
     food      - Symbol for Zoidberg to be chasing, should be length one string ['-']
+    woop      - Zoidberg woops instead of inks [False]
     """
 
     status = ""
@@ -60,9 +61,12 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-'):
     zb_middle = int(len(zb)/2)
     start = int(round((barLength-zb_middle)*progress))
     rest  = barLength-start-zb_middle-pad_
+
+    if woop:
+        ink=("woop"*int(1+start/4))[:start]
     
     text = u"\rProgress: [{start}{zb}{rest}] {perc:6.2f}% {stat}".format(
-        start=ink*start, zb=zb, perc=progress*100, rest=food*rest, stat=status)
+        start=ink, zb=zb, perc=progress*100, rest=food*rest, stat=status)
     stdout.write(text)
     stdout.flush()
     
