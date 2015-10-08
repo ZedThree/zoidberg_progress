@@ -4,7 +4,7 @@
 from sys import stdout
 from time import sleep
 
-def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-', woop=False):
+def zoidberg_progress(progress, bar_length=40, ascii=False, pad=False, food='-', woop=False):
     """Displays or updates a console progress bar
 
     Accepts a float between 0 and 1. Any int will be converted to a float.
@@ -14,7 +14,7 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-', 
     Inputs
     ------
     progress  - Number between 0 and 1
-    barLength - Length of the progress bar [40]
+    bar_length - Length of the progress bar [40]
     ascii     - Use '#' as the progress indicator, otherwise use a Unicode
                 character [False]
     pad       - Pad Zoidberg's claws to stop his head bobbing [False]
@@ -35,8 +35,8 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-', 
         progress = 1
         status = "Done...\r\n"
 
-    if barLength < 40:
-        barLength = 40
+    if bar_length < 40:
+        bar_length = 40
         
     if ascii:
         face = " (;,,,;) "
@@ -48,7 +48,7 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-', 
     open_claw   = "(\/)"
     closed_claw = "(|)"
 
-    if int(progress*barLength) % 2:
+    if int(progress*bar_length) % 2:
         pad_ = pad * 0
         left_claw  = open_claw
         right_claw = closed_claw
@@ -59,8 +59,8 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False, food='-', 
 
     zb = left_claw+face+right_claw
     zb_middle = int(len(zb)/2)
-    start = int(round((barLength-zb_middle)*progress))
-    rest  = barLength-start-zb_middle-pad_
+    start = int(round((bar_length-zb_middle)*progress))
+    rest  = bar_length-start-zb_middle-pad_
 
     if woop:
         ink=("woop"*int(1+start/4))[:start]
