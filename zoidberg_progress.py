@@ -58,9 +58,10 @@ def zoidberg_progress(progress, barLength=40, ascii=False, pad=False):
     zb = left_claw+face+right_claw
     zb_middle = int(len(zb)/2)
     start = int(round((barLength-zb_middle)*progress))
+    rest  = barLength-start-zb_middle-pad_
     
     text = u"\rProgress: [{start}{zb}{rest}] {perc:6.2f}% {stat}".format(
-        start=ink*start, zb=zb, perc=progress*100, rest='-'*(barLength-start-zb_middle), stat=status)
+        start=ink*start, zb=zb, perc=progress*100, rest='-'*rest, stat=status)
     stdout.write(text)
     stdout.flush()
     
