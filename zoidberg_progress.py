@@ -64,6 +64,8 @@ def zoidberg_progress(progress, bar_length=40, ascii=False, pad=False, food='-',
 
     if woop:
         ink=("woop"*int(1+start/4))[:start]
+    else:
+        ink = ink*start
     
     text = u"\rProgress: [{start}{zb}{rest}] {perc:6.2f}% {stat}".format(
         start=ink, zb=zb, perc=progress*100, rest=food*rest, stat=status)
