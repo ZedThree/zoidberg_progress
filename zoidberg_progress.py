@@ -64,7 +64,7 @@ def zoidberg_progress(progress, bar_length=40, ascii=False, pad=False, food='-',
     rest  = bar_length-start-zb_middle-pad_
 
     if woop:
-        ink=("woop"*int(1+start/4))[:start]
+        ink = ("woop"*int(1+start/4))[:start]
     else:
         ink = ink*start
 
